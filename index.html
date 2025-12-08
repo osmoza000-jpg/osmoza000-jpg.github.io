@@ -1,0 +1,2287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koeller JMS - Moquette de pierre, Résine flake, Entretien extérieur</title>
+  <meta name="description" content="Artisan spécialisé en moquette de pierre, résine flake, entretien extérieur et évacuation de déchets en Alsace.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #292524;
+      line-height: 1.6;
+      background: #fff;
+    }
+    
+    .font-display {
+      font-family: 'Fraunces', Georgia, serif;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Boutons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+    }
+    
+    .btn-primary {
+      background: #292524;
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #1c1917;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px -10px rgba(41, 37, 36, 0.4);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #292524;
+      color: #292524;
+    }
+    
+    .btn-outline:hover {
+      background: #292524;
+      color: white;
+    }
+    
+    .btn-white {
+      background: white;
+      color: #292524;
+    }
+    
+    .btn-white:hover {
+      background: #f5f5f4;
+    }
+    
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .header-top {
+      padding: 12px 0;
+      border-bottom: 1px solid #e7e5e4;
+    }
+    
+    .header-top .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 18px;
+      color: #292524;
+    }
+    
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: #292524;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+    }
+    
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    .header-phone {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #57534e;
+      font-weight: 500;
+    }
+    
+    .header-phone:hover {
+      color: #292524;
+    }
+    
+    .header-nav {
+      background: #fafaf9;
+      border-bottom: 1px solid #e7e5e4;
+    }
+    
+    .nav-menu {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      padding: 10px 0;
+      list-style: none;
+    }
+    
+    .nav-menu a {
+      display: block;
+      padding: 10px 18px;
+      color: #57534e;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: #292524;
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    
+    /* Mobile menu */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+    }
+    
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border-top: 1px solid #e7e5e4;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+    
+    .mobile-menu.open {
+      display: block;
+    }
+    
+    .mobile-menu a {
+      display: block;
+      padding: 14px 16px;
+      color: #57534e;
+      font-weight: 500;
+      border-radius: 8px;
+    }
+    
+    .mobile-menu a:hover,
+    .mobile-menu a.active {
+      background: #f5f5f4;
+      color: #292524;
+    }
+    
+    @media (max-width: 900px) {
+      .header-nav {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .header-contact .btn {
+        display: none;
+      }
+    }
+    
+    /* Hero */
+    .hero {
+      position: relative;
+      height: 85vh;
+      min-height: 600px;
+      margin-top: 110px;
+      overflow: hidden;
+    }
+    
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    
+    .hero-slide.active {
+      opacity: 1;
+    }
+    
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(28, 25, 23, 0.75) 0%, rgba(28, 25, 23, 0.4) 50%, transparent 100%);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+    
+    .hero-text {
+      max-width: 650px;
+      padding: 60px 0;
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      padding: 10px 20px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50px;
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 30px;
+    }
+    
+    .hero-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 700;
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    
+    .hero-subtitle {
+      font-size: clamp(24px, 3vw, 36px);
+      color: #d6d3d1;
+      font-weight: 400;
+      margin-bottom: 30px;
+    }
+    
+    .hero-description {
+      font-size: 18px;
+      color: #d6d3d1;
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 500px;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    
+    .hero-dots {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 20;
+    }
+    
+    .hero-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .hero-dot.active {
+      width: 32px;
+      border-radius: 5px;
+      background: white;
+    }
+    
+    .hero-arrows {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 20;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .hero:hover .hero-arrows {
+      opacity: 1;
+    }
+    
+    .hero-arrow {
+      width: 56px;
+      height: 56px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      cursor: pointer;
+      pointer-events: auto;
+      transition: all 0.3s ease;
+    }
+    
+    .hero-arrow:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.1);
+    }
+    
+    @media (max-width: 600px) {
+      .hero-arrow {
+        width: 44px;
+        height: 44px;
+      }
+      
+      .hero-arrows {
+        padding: 0 10px;
+      }
+    }
+    
+    /* Sections */
+    .section {
+      padding: 100px 0;
+    }
+    
+    .section-gray {
+      background: #fafaf9;
+    }
+    
+    .section-dark {
+      background: #292524;
+      color: white;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-badge {
+      display: inline-block;
+      color: #78716c;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    
+    .section-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      color: #292524;
+      line-height: 1.2;
+    }
+    
+    .section-dark .section-title {
+      color: white;
+    }
+    
+    .section-subtitle {
+      font-size: 18px;
+      color: #78716c;
+      margin-top: 15px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+    
+    @media (max-width: 1000px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .service-card {
+      background: #fafaf9;
+      border-radius: 20px;
+      padding: 35px 30px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.1);
+    }
+    
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: white;
+    }
+    
+    .service-icon.amber { background: #f59e0b; }
+    .service-icon.slate { background: #475569; }
+    .service-icon.green { background: #16a34a; }
+    .service-icon.stone { background: #57534e; }
+    
+    .service-card h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    
+    .service-card p {
+      color: #78716c;
+      font-size: 15px;
+    }
+    
+    .service-card .arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #292524;
+      font-weight: 600;
+      font-size: 14px;
+      margin-top: 20px;
+      transition: gap 0.2s;
+    }
+    
+    .service-card:hover .arrow {
+      gap: 10px;
+    }
+    
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    
+    @media (max-width: 800px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 500px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 4/3;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+    
+    .gallery-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(28,25,23,0.8) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .gallery-item:hover .gallery-item-overlay {
+      opacity: 1;
+    }
+    
+    .gallery-item-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      transform: translateY(10px);
+      opacity: 0;
+      transition: all 0.3s;
+    }
+    
+    .gallery-item:hover .gallery-item-info {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    .gallery-item-info h3 {
+      color: white;
+      font-weight: 600;
+      font-size: 18px;
+    }
+    
+    .gallery-item-info p {
+      color: #d6d3d1;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    
+    /* Avantages */
+    .avantages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+    
+    @media (max-width: 800px) {
+      .avantages-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 500px) {
+      .avantages-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .avantage-card {
+      display: flex;
+      gap: 16px;
+      padding: 25px;
+      background: #fafaf9;
+      border-radius: 16px;
+    }
+    
+    .avantage-icon {
+      width: 48px;
+      height: 48px;
+      background: #292524;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      flex-shrink: 0;
+    }
+    
+    .avantage-card h4 {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    
+    .avantage-card p {
+      color: #78716c;
+      font-size: 14px;
+    }
+    
+    /* Etapes */
+    .etapes-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+    
+    @media (max-width: 900px) {
+      .etapes-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .etapes-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .etape {
+      text-align: center;
+    }
+    
+    .etape-num {
+      width: 64px;
+      height: 64px;
+      background: #292524;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 22px;
+      margin: 0 auto 16px;
+    }
+    
+    .etape h4 {
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .etape p {
+      color: #78716c;
+      font-size: 14px;
+    }
+    
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: 60px;
+    }
+    
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .contact-info-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px;
+      background: #fafaf9;
+      border-radius: 14px;
+      margin-bottom: 15px;
+      transition: background 0.2s;
+    }
+    
+    .contact-info-card:hover {
+      background: #f5f5f4;
+    }
+    
+    .contact-info-icon {
+      width: 50px;
+      height: 50px;
+      background: #292524;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    
+    .contact-info-card span {
+      color: #78716c;
+      font-size: 13px;
+    }
+    
+    .contact-info-card strong {
+      display: block;
+      font-weight: 600;
+      color: #292524;
+    }
+    
+    .contact-form {
+      background: #fafaf9;
+      padding: 40px;
+      border-radius: 20px;
+    }
+    
+    .contact-form h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    
+    @media (max-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #57534e;
+      margin-bottom: 8px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid #d6d3d1;
+      border-radius: 12px;
+      font-size: 15px;
+      font-family: inherit;
+      transition: all 0.2s;
+      background: white;
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #78716c;
+      box-shadow: 0 0 0 3px rgba(120, 113, 108, 0.1);
+    }
+    
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      font-size: 16px;
+    }
+    
+    .form-note {
+      text-align: center;
+      color: #78716c;
+      font-size: 14px;
+      margin-top: 15px;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 80px 0;
+      text-align: center;
+    }
+    
+    .cta-section h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(26px, 3vw, 36px);
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    
+    .cta-section p {
+      color: #d6d3d1;
+      margin-bottom: 30px;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    
+    /* Page Header */
+    .page-header {
+      padding: 80px 0;
+      background: #fafaf9;
+      margin-top: 110px;
+    }
+    
+    .page-header-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    
+    @media (max-width: 900px) {
+      .page-header-content {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .page-header h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 700;
+      color: #292524;
+      margin-bottom: 20px;
+    }
+    
+    .page-header p {
+      color: #57534e;
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+    
+    .page-header img {
+      border-radius: 20px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+    }
+    
+    /* Footer */
+    .footer {
+      background: #1c1917;
+      color: #a8a29e;
+      padding: 80px 0 40px;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+    
+    @media (max-width: 800px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+    
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .footer-logo .logo-icon {
+      background: #44403c;
+    }
+    
+    .footer-logo span {
+      font-weight: 600;
+      font-size: 18px;
+      color: white;
+    }
+    
+    .footer-desc {
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    
+    .footer h4 {
+      color: white;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: #a8a29e;
+      transition: color 0.2s;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid #292524;
+      padding-top: 30px;
+      text-align: center;
+      font-size: 14px;
+    }
+    
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.95);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .lightbox.open {
+      display: flex;
+    }
+    
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 40px;
+      cursor: pointer;
+      line-height: 1;
+    }
+    
+    .lightbox img {
+      max-width: 90%;
+      max-height: 85vh;
+      border-radius: 8px;
+    }
+    
+    .lightbox-caption {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: white;
+    }
+    
+    .lightbox-caption h3 {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    
+    .lightbox-caption p {
+      color: #a8a29e;
+    }
+    
+    /* Filters */
+    .filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 50px;
+    }
+    
+    .filter-btn {
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      background: #f5f5f4;
+      color: #57534e;
+      transition: all 0.2s;
+    }
+    
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #292524;
+      color: white;
+    }
+    
+    /* Services details */
+    .services-list {
+      list-style: none;
+    }
+    
+    .services-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+      color: #44403c;
+    }
+    
+    .services-list li svg {
+      color: #16a34a;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    
+    .two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+    
+    @media (max-width: 800px) {
+      .two-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .two-columns h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    
+    .two-columns p {
+      color: #57534e;
+      margin-bottom: 25px;
+    }
+    
+    .eco-box {
+      background: #f0fdf4;
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+    }
+    
+    .eco-box svg {
+      color: #16a34a;
+      margin-bottom: 15px;
+    }
+    
+    .eco-box h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      margin-bottom: 10px;
+    }
+    
+    .eco-box p {
+      color: #57534e;
+    }
+    
+    /* Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      text-align: center;
+    }
+    
+    @media (max-width: 700px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    .stat-num {
+      font-size: 48px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 5px;
+    }
+    
+    .stat-label {
+      color: #a8a29e;
+    }
+    
+    /* Values */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    
+    @media (max-width: 700px) {
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .value-card {
+      text-align: center;
+      padding: 40px 30px;
+      background: #fafaf9;
+      border-radius: 20px;
+    }
+    
+    .value-icon {
+      width: 64px;
+      height: 64px;
+      background: #292524;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      margin: 0 auto 20px;
+    }
+    
+    .value-card h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    
+    .value-card p {
+      color: #78716c;
+    }
+    
+    /* Mobile CTA */
+    .mobile-cta {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 56px;
+      height: 56px;
+      background: #292524;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      z-index: 100;
+    }
+    
+    @media (max-width: 900px) {
+      .mobile-cta {
+        display: flex;
+      }
+    }
+    
+    /* Page transitions */
+    .page {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+    
+    .page.active {
+      display: block;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Applications grid */
+    .applications-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    
+    @media (max-width: 800px) {
+      .applications-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    .application-card {
+      position: relative;
+      aspect-ratio: 4/3;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    
+    .application-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    
+    .application-card:hover img {
+      transform: scale(1.05);
+    }
+    
+    .application-card h3 {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    
+    .application-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(28,25,23,0.7) 0%, transparent 60%);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-top">
+      <div class="container">
+        <a href="#" class="logo" onclick="navigateTo('accueil')">
+          <div class="logo-icon">K</div>
+          <span>KOELLER JMS</span>
+        </a>
+        <div class="header-contact">
+          <a href="tel:0676068704" class="header-phone">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            06 76 06 87 04
+          </a>
+          <a href="#" class="btn btn-primary" onclick="navigateTo('contact')">Devis gratuit</a>
+        </div>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="header-nav">
+      <ul class="nav-menu">
+        <li><a href="#" onclick="navigateTo('accueil')" data-page="accueil" class="active">Accueil</a></li>
+        <li><a href="#" onclick="navigateTo('moquette')" data-page="moquette">Moquette de pierre</a></li>
+        <li><a href="#" onclick="navigateTo('resine')" data-page="resine">Résine flake</a></li>
+        <li><a href="#" onclick="navigateTo('entretien')" data-page="entretien">Entretien & Évacuation</a></li>
+        <li><a href="#" onclick="navigateTo('realisations')" data-page="realisations">Nos réalisations</a></li>
+        <li><a href="#" onclick="navigateTo('apropos')" data-page="apropos">À propos</a></li>
+        <li><a href="#" onclick="navigateTo('contact')" data-page="contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#" onclick="navigateTo('accueil')" data-page="accueil" class="active">Accueil</a>
+      <a href="#" onclick="navigateTo('moquette')" data-page="moquette">Moquette de pierre</a>
+      <a href="#" onclick="navigateTo('resine')" data-page="resine">Résine flake</a>
+      <a href="#" onclick="navigateTo('entretien')" data-page="entretien">Entretien & Évacuation</a>
+      <a href="#" onclick="navigateTo('realisations')" data-page="realisations">Nos réalisations</a>
+      <a href="#" onclick="navigateTo('apropos')" data-page="apropos">À propos</a>
+      <a href="#" onclick="navigateTo('contact')" data-page="contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- Page: Accueil -->
+  <div class="page active" id="page-accueil">
+    
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-slide active">
+        <img src="C:\Users\Y\Downloads\site\img1.jpg" alt="Terrasse moquette de pierre">
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-slide">
+        <img src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=1400&h=900&fit=crop" alt="Contour de piscine">
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-slide">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&h=900&fit=crop" alt="Sol résine">
+        <div class="hero-overlay"></div>
+      </div>
+      
+      <div class="hero-content">
+        <div class="container">
+          <div class="hero-text">
+            <span class="hero-badge">Artisan en Alsace depuis 15 ans</span>
+            <h1 class="hero-title" id="heroTitle">Moquette de pierre</h1>
+            <p class="hero-subtitle" id="heroSubtitle">pour terrasses & allées</p>
+            <p class="hero-description">
+              Pose de moquette de pierre, résine flake, entretien extérieur et évacuation de déchets. 
+              Des espaces durables et esthétiques.
+            </p>
+            <div class="hero-buttons">
+              <a href="#" class="btn btn-primary" onclick="navigateTo('contact')">
+                Demander un devis
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+              <a href="#" class="btn btn-outline" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: white;" onclick="navigateTo('realisations')">
+                Voir nos réalisations
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="hero-dots">
+        <button class="hero-dot active" onclick="goToSlide(0)"></button>
+        <button class="hero-dot" onclick="goToSlide(1)"></button>
+        <button class="hero-dot" onclick="goToSlide(2)"></button>
+      </div>
+      
+      <div class="hero-arrows">
+        <button class="hero-arrow" onclick="prevSlide()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="hero-arrow" onclick="nextSlide()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Nos services</span>
+          <h2 class="section-title">Ce que nous faisons</h2>
+          <p class="section-subtitle">Des solutions complètes pour tous vos espaces extérieurs</p>
+        </div>
+        
+        <div class="services-grid">
+          <div class="service-card" onclick="navigateTo('moquette')">
+            <div class="service-icon amber">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="10.5" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="12.5" r="2.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.555C21.965 6.012 17.461 2 12 2z"/></svg>
+            </div>
+            <h3>Moquette de pierre</h3>
+            <p>Terrasses, allées, piscines, escaliers</p>
+            <span class="arrow">En savoir plus <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+          </div>
+          
+          <div class="service-card" onclick="navigateTo('resine')">
+            <div class="service-icon slate">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h3>Résine flake</h3>
+            <p>Garages, ateliers, locaux techniques</p>
+            <span class="arrow">En savoir plus <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+          </div>
+          
+          <div class="service-card" onclick="navigateTo('entretien')">
+            <div class="service-icon green">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            </div>
+            <h3>Entretien extérieur</h3>
+            <p>Nettoyage, taille, désherbage</p>
+            <span class="arrow">En savoir plus <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+          </div>
+          
+          <div class="service-card" onclick="navigateTo('entretien')">
+            <div class="service-icon stone">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+            </div>
+            <h3>Évacuation déchets</h3>
+            <p>Gravats, encombrants, végétaux</p>
+            <span class="arrow">En savoir plus <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Réalisations aperçu -->
+    <section class="section section-gray">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Réalisations</span>
+          <h2 class="section-title">Nos derniers projets</h2>
+          <p class="section-subtitle">Découvrez quelques-unes de nos réalisations récentes</p>
+        </div>
+        
+        <div class="gallery-grid">
+          <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200', 'Contour de piscine', 'Colmar')">
+            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&h=450&fit=crop" alt="Contour de piscine">
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-info">
+              <h3>Contour de piscine</h3>
+              <p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Colmar</p>
+            </div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200', 'Allée de jardin', 'Mulhouse')">
+            <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&h=450&fit=crop" alt="Allée de jardin">
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-info">
+              <h3>Allée de jardin</h3>
+              <p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Mulhouse</p>
+            </div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1600573472591-ee6c563aaec9?w=1200', 'Escalier extérieur', 'Haguenau')">
+            <img src="https://images.unsplash.com/photo-1600573472591-ee6c563aaec9?w=600&h=450&fit=crop" alt="Escalier extérieur">
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-info">
+              <h3>Escalier extérieur</h3>
+              <p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Haguenau</p>
+            </div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200', 'Entrée de maison', 'Sélestat')">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=450&fit=crop" alt="Entrée de maison">
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-info">
+              <h3>Entrée de maison</h3>
+              <p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Sélestat</p>
+            </div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1200', 'Terrasse moderne', 'Saverne')">
+            <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&h=450&fit=crop" alt="Terrasse moderne">
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-info">
+              <h3>Terrasse moderne</h3>
+              <p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Saverne</p>
+            </div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=1200', 'Cour intérieure', 'Obernai')">
+            <img src="https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=600&h=450&fit=crop" alt="Cour intérieure">
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-info">
+              <h3>Cour intérieure</h3>
+              <p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Obernai</p>
+            </div>
+          </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 50px;">
+          <a href="#" class="btn btn-outline" onclick="navigateTo('realisations')">
+            Voir toutes les réalisations
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section-dark cta-section">
+      <div class="container">
+        <h2>Prêt à transformer vos extérieurs ?</h2>
+        <p>Contactez-nous pour un devis gratuit et personnalisé</p>
+        <div class="cta-buttons">
+          <a href="#" class="btn btn-white" onclick="navigateTo('contact')">Demander un devis</a>
+          <a href="tel:0676068704" class="btn" style="border: 2px solid white; color: white;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            06 76 06 87 04
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Page: Moquette de pierre -->
+  <div class="page" id="page-moquette">
+    <section class="page-header">
+      <div class="container">
+        <div class="page-header-content">
+          <div>
+            <span class="section-badge">Revêtement décoratif</span>
+            <h1>Moquette de pierre</h1>
+            <p>La moquette de pierre, également appelée tapis de marbre, est un revêtement extérieur composé de granulats de marbre naturel liés par une résine polyuréthane. Ce matériau offre une finition à la fois élégante, durable et fonctionnelle.</p>
+            <p>Idéale pour les terrasses, allées, contours de piscine, escaliers et balcons, elle s'adapte à toutes les configurations et apporte une plus-value esthétique à votre habitat.</p>
+            <div style="display: flex; gap: 15px; margin-top: 30px;">
+              <a href="#" class="btn btn-primary" onclick="navigateTo('contact')">Demander un devis</a>
+              <a href="#" class="btn btn-outline" onclick="navigateTo('realisations')">Voir les réalisations</a>
+            </div>
+          </div>
+          <div>
+            <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&h=600&fit=crop" alt="Moquette de pierre">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Avantages</span>
+          <h2 class="section-title">Pourquoi choisir la moquette de pierre ?</h2>
+        </div>
+        
+        <div class="avantages-grid">
+          <div class="avantage-card">
+            <div class="avantage-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            </div>
+            <div>
+              <h4>Drainant</h4>
+              <p>L'eau s'écoule naturellement à travers le revêtement, évitant les flaques</p>
+            </div>
+          </div>
+          <div class="avantage-card">
+            <div class="avantage-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </div>
+            <div>
+              <h4>Thermo-résistant</h4>
+              <p>Résiste au gel jusqu'à -30°C et aux fortes chaleurs estivales</p>
+            </div>
+          </div>
+          <div class="avantage-card">
+            <div class="avantage-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+            </div>
+            <div>
+              <h4>Carrossable</h4>
+              <p>Supporte le passage régulier de véhicules légers et lourds</p>
+            </div>
+          </div>
+          <div class="avantage-card">
+            <div class="avantage-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <div>
+              <h4>Entretien facile</h4>
+              <p>Simple nettoyage au jet d'eau ou haute pression</p>
+            </div>
+          </div>
+          <div class="avantage-card">
+            <div class="avantage-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h4>Antidérapant</h4>
+              <p>Surface sécurisée même mouillée, idéale autour des piscines</p>
+            </div>
+          </div>
+          <div class="avantage-card">
+            <div class="avantage-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="10.5" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="12.5" r="2.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.555C21.965 6.012 17.461 2 12 2z"/></svg>
+            </div>
+            <div>
+              <h4>Personnalisable</h4>
+              <p>Large choix de couleurs et de granulométries</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-gray">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Applications</span>
+          <h2 class="section-title">Où poser la moquette de pierre ?</h2>
+        </div>
+        
+        <div class="applications-grid">
+          <div class="application-card">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=300&fit=crop" alt="Terrasses">
+            <h3>Terrasses</h3>
+          </div>
+          <div class="application-card">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=300&fit=crop" alt="Allées">
+            <h3>Allées & Entrées</h3>
+          </div>
+          <div class="application-card">
+            <img src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=400&h=300&fit=crop" alt="Piscines">
+            <h3>Contours de piscine</h3>
+          </div>
+          <div class="application-card">
+            <img src="https://images.unsplash.com/photo-1600573472591-ee6c563aaec9?w=400&h=300&fit=crop" alt="Escaliers">
+            <h3>Escaliers</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Processus</span>
+          <h2 class="section-title">Les étapes d'installation</h2>
+        </div>
+        
+        <div class="etapes-grid">
+          <div class="etape">
+            <div class="etape-num">01</div>
+            <h4>Prise de contact</h4>
+            <p>Échange sur votre projet et prise de rendez-vous</p>
+          </div>
+          <div class="etape">
+            <div class="etape-num">02</div>
+            <h4>Visite & Devis</h4>
+            <p>Analyse du support et devis détaillé gratuit</p>
+          </div>
+          <div class="etape">
+            <div class="etape-num">03</div>
+            <h4>Préparation</h4>
+            <p>Nettoyage et préparation du support</p>
+          </div>
+          <div class="etape">
+            <div class="etape-num">04</div>
+            <h4>Application</h4>
+            <p>Pose professionnelle du revêtement</p>
+          </div>
+          <div class="etape">
+            <div class="etape-num">05</div>
+            <h4>Contrôle</h4>
+            <p>Vérification et conseils d'entretien</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark cta-section">
+      <div class="container">
+        <h2>Envie d'une terrasse en moquette de pierre ?</h2>
+        <p>Devis gratuit sous 48h</p>
+        <a href="#" class="btn btn-white" onclick="navigateTo('contact')">Demander un devis</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- Page: Résine flake -->
+  <div class="page" id="page-resine">
+    <section class="page-header">
+      <div class="container">
+        <div class="page-header-content">
+          <div>
+            <span class="section-badge">Sol technique</span>
+            <h1>Sol résine flake</h1>
+            <p>Le sol en résine flake est un revêtement technique composé d'une base époxy ou polyuréthane parsemée de flocons colorés (flakes). Il offre une finition moderne, résistante et facile d'entretien.</p>
+            <p>Parfait pour les garages, ateliers, caves, buanderies et locaux professionnels, ce revêtement allie performance technique et esthétique contemporaine.</p>
+            <div style="display: flex; gap: 15px; margin-top: 30px;">
+              <a href="#" class="btn btn-primary" onclick="navigateTo('contact')">Demander un devis</a>
+            </div>
+          </div>
+          <div>
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop" alt="Sol résine flake">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Avantages</span>
+          <h2 class="section-title">Les atouts du sol résine flake</h2>
+        </div>
+        
+        <div class="avantages-grid">
+          <div class="avantage-card">
+            <div class="avantage-icon" style="background: #475569;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h4>Ultra résistant</h4>
+              <p>Résiste aux chocs, rayures et produits chimiques</p>
+            </div>
+          </div>
+          <div class="avantage-card">
+            <div class="avantage-icon" style="background: #475569;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            </div>
+            <div>
+              <h4>Étanche</h4>
+              <p>Protection totale contre l'humidité et les infiltrations</p>
+            </div>
+          </div>
+          <div class="avantage-card">
+            <div class="avantage-icon" style="background: #475569;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <div>
+              <h4>Facile à nettoyer</h4>
+              <p>Surface lisse sans joints, hygiénique</p>
+            </div>
+          </div>
+          <div class="avantage-card">
+            <div class="avantage-icon" style="background: #475569;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="10.5" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="12.5" r="2.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.555C21.965 6.012 17.461 2 12 2z"/></svg>
+            </div>
+            <div>
+              <h4>Décoratif</h4>
+              <p>Effet moucheté moderne et élégant</p>
+            </div>
+          </div>
+          <div class="avantage-card">
+            <div class="avantage-icon" style="background: #475569;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+            </div>
+            <div>
+              <h4>Haute résistance</h4>
+              <p>Idéal pour garages et zones de passage intensif</p>
+            </div>
+          </div>
+          <div class="avantage-card">
+            <div class="avantage-icon" style="background: #475569;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <h4>Durable</h4>
+              <p>Durée de vie exceptionnelle avec peu d'entretien</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark cta-section">
+      <div class="container">
+        <h2>Un projet de sol en résine ?</h2>
+        <a href="#" class="btn btn-white" onclick="navigateTo('contact')">Contactez-nous</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- Page: Entretien -->
+  <div class="page" id="page-entretien">
+    <section class="page-header" style="padding-bottom: 60px;">
+      <div class="container">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+          <span class="section-badge">Services complets</span>
+          <h1 style="margin-bottom: 20px;">Entretien extérieur & Évacuation de déchets</h1>
+          <p style="font-size: 18px; color: #57534e;">Des extérieurs propres et bien entretenus toute l'année. Nous prenons en charge l'entretien de vos espaces verts et l'évacuation de tous types de déchets.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 60px;">
+      <div class="container">
+        <div class="two-columns">
+          <div>
+            <div style="width: 56px; height: 56px; background: #16a34a; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: white; margin-bottom: 20px;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            </div>
+            <h3>Entretien extérieur</h3>
+            <p>Nous assurons l'entretien régulier ou ponctuel de vos extérieurs pour les garder propres et accueillants tout au long de l'année.</p>
+            <ul class="services-list">
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Nettoyage de terrasses, allées et cours</li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Nettoyage de façades et murets</li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Désherbage manuel et mécanique</li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Tonte de pelouse et taille de haies</li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Entretien de sols en moquette de pierre</li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Lavage haute pression</li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Remise en état après travaux</li>
+            </ul>
+          </div>
+          <div>
+            <div style="width: 56px; height: 56px; background: #57534e; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: white; margin-bottom: 20px;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+            </div>
+            <h3>Évacuation de déchets</h3>
+            <p>Nous prenons en charge l'enlèvement de tous types de déchets, du chargement au dépôt en centre agréé.</p>
+            <ul class="services-list">
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Gravats et débris de chantier</li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Terre et remblais</li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Déchets verts et végétaux</li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Bois et matériaux divers</li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Encombrants et mobilier</li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Tri et transport en filières adaptées</li>
+              <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Certificat de dépôt sur demande</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-gray">
+      <div class="container">
+        <div class="eco-box" style="max-width: 700px; margin: 0 auto;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+          <h3>Engagement environnemental</h3>
+          <p>Koeller JMS s'engage pour un entretien respectueux de l'environnement. Nous privilégions le tri sélectif, la valorisation des déchets et l'utilisation de méthodes de nettoyage écologiques chaque fois que possible.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark cta-section">
+      <div class="container">
+        <h2>Besoin d'un entretien ou d'une évacuation ?</h2>
+        <a href="#" class="btn btn-white" onclick="navigateTo('contact')">Demander un devis</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- Page: Réalisations -->
+  <div class="page" id="page-realisations">
+    <section class="page-header" style="padding-bottom: 40px;">
+      <div class="container">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+          <span class="section-badge">Portfolio</span>
+          <h1 style="margin-bottom: 15px;">Nos réalisations</h1>
+          <p style="font-size: 18px; color: #57534e;">Découvrez nos projets réalisés en Alsace et régions limitrophes. Chaque chantier est unique et réalisé avec soin.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 40px;">
+      <div class="container">
+        <div class="filters">
+          <button class="filter-btn active" onclick="filterGallery('all', this)">Toutes</button>
+          <button class="filter-btn" onclick="filterGallery('moquette', this)">Moquette de pierre</button>
+          <button class="filter-btn" onclick="filterGallery('resine', this)">Résine flake</button>
+          <button class="filter-btn" onclick="filterGallery('entretien', this)">Entretien</button>
+        </div>
+        
+        <div class="gallery-grid" id="mainGallery">
+          <div class="gallery-item" data-category="moquette" onclick="openLightbox('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200', 'Terrasse moderne', 'Strasbourg')">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=450&fit=crop" alt="Terrasse moderne">
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-info"><h3>Terrasse moderne</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Strasbourg</p></div>
+          </div>
+          <div class="gallery-item" data-category="moquette" onclick="openLightbox('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200', 'Contour de piscine', 'Colmar')">
+            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&h=450&fit=crop" alt="Contour de piscine">
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-info"><h3>Contour de piscine</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Colmar</p></div>
+          </div>
+          <div class="gallery-item" data-category="moquette" onclick="openLightbox('https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200', 'Allée de jardin', 'Mulhouse')">
+            <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&h=450&fit=crop" alt="Allée de jardin">
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-info"><h3>Allée de jardin</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Mulhouse</p></div>
+          </div>
+          <div class="gallery-item" data-category="moquette" onclick="openLightbox('https://images.unsplash.com/photo-1600573472591-ee6c563aaec9?w=1200', 'Escalier extérieur', 'Haguenau')">
+            <img src="https://images.unsplash.com/photo-1600573472591-ee6c563aaec9?w=600&h=450&fit=crop" alt="Escalier extérieur">
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-info"><h3>Escalier extérieur</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Haguenau</p></div>
+          </div>
+          <div class="gallery-item" data-category="moquette" onclick="openLightbox('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200', 'Entrée de maison', 'Sélestat')">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=450&fit=crop" alt="Entrée de maison">
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-info"><h3>Entrée de maison</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Sélestat</p></div>
+          </div>
+          <div class="gallery-item" data-category="moquette" onclick="openLightbox('https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1200', 'Cour intérieure', 'Saverne')">
+            <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&h=450&fit=crop" alt="Cour intérieure">
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-info"><h3>Cour intérieure</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Saverne</p></div>
+          </div>
+          <div class="gallery-item" data-category="resine" onclick="openLightbox('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200', 'Garage résidentiel', 'Strasbourg')">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=450&fit=crop" alt="Garage résidentiel">
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-info"><h3>Garage résidentiel</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Strasbourg</p></div>
+          </div>
+          <div class="gallery-item" data-category="resine" onclick="openLightbox('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200', 'Atelier professionnel', 'Colmar')">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=450&fit=crop" alt="Atelier professionnel">
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-info"><h3>Atelier professionnel</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Colmar</p></div>
+          </div>
+          <div class="gallery-item" data-category="entretien" onclick="openLightbox('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1200', 'Taille de haies', 'Mulhouse')">
+            <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=450&fit=crop" alt="Taille de haies">
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-info"><h3>Taille de haies</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Mulhouse</p></div>
+          </div>
+          <div class="gallery-item" data-category="entretien" onclick="openLightbox('https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1200', 'Nettoyage terrasse', 'Haguenau')">
+            <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=600&h=450&fit=crop" alt="Nettoyage terrasse">
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-info"><h3>Nettoyage terrasse</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Haguenau</p></div>
+          </div>
+          <div class="gallery-item" data-category="moquette" onclick="openLightbox('https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=1200', 'Terrasse avec motifs', 'Obernai')">
+            <img src="https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=600&h=450&fit=crop" alt="Terrasse avec motifs">
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-info"><h3>Terrasse avec motifs</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Obernai</p></div>
+          </div>
+          <div class="gallery-item" data-category="moquette" onclick="openLightbox('https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=1200', 'Plage de piscine', 'Wissembourg')">
+            <img src="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=600&h=450&fit=crop" alt="Plage de piscine">
+            <div class="gallery-item-overlay"></div>
+            <div class="gallery-item-info"><h3>Plage de piscine</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Wissembourg</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-gray cta-section" style="padding: 60px 0;">
+      <div class="container">
+        <h2 style="color: #292524;">Votre projet pourrait être le prochain</h2>
+        <p style="color: #57534e;">Contactez-nous pour discuter de vos envies</p>
+        <a href="#" class="btn btn-primary" onclick="navigateTo('contact')">Demander un devis gratuit</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- Page: À propos -->
+  <div class="page" id="page-apropos">
+    <section class="page-header">
+      <div class="container">
+        <div class="page-header-content">
+          <div>
+            <span class="section-badge">À propos</span>
+            <h1>Qui sommes-nous ?</h1>
+            <p>Koeller JMS est une entreprise artisanale alsacienne spécialisée dans la pose de moquette de pierre, le sol résine flake, l'entretien extérieur et l'évacuation de déchets.</p>
+            <p>Forts de plus de 15 ans d'expérience, nous mettons notre savoir-faire au service des particuliers et des professionnels pour créer et entretenir des espaces agréables, solides et faciles à vivre.</p>
+            <p>Notre engagement : un travail soigné, des matériaux de qualité, et une relation de confiance avec chacun de nos clients.</p>
+          </div>
+          <div>
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop" alt="Réalisation Koeller JMS">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Nos valeurs</span>
+          <h2 class="section-title">Ce qui nous anime</h2>
+        </div>
+        
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            </div>
+            <h3>Qualité</h3>
+            <p>Des matériaux premium et une pose dans les règles de l'art pour des résultats durables.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Proximité</h3>
+            <p>Une entreprise à taille humaine, à l'écoute de vos besoins et disponible pour vous conseiller.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            </div>
+            <h3>Responsabilité</h3>
+            <p>Un engagement environnemental avec le tri des déchets et des méthodes respectueuses.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="stats-grid">
+          <div>
+            <div class="stat-num">15+</div>
+            <div class="stat-label">Années d'expérience</div>
+          </div>
+          <div>
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Projets réalisés</div>
+          </div>
+          <div>
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Clients satisfaits</div>
+          </div>
+          <div>
+            <div class="stat-num">48h</div>
+            <div class="stat-label">Délai de réponse</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-gray cta-section" style="padding: 60px 0;">
+      <div class="container">
+        <h2 style="color: #292524;">Prêt à nous confier votre projet ?</h2>
+        <a href="#" class="btn btn-primary" onclick="navigateTo('contact')">Contactez-nous</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- Page: Contact -->
+  <div class="page" id="page-contact">
+    <section class="page-header" style="padding-bottom: 40px;">
+      <div class="container">
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+          <span class="section-badge">Contact</span>
+          <h1 style="margin-bottom: 15px;">Parlons de votre projet</h1>
+          <p style="font-size: 18px; color: #57534e;">Devis gratuit et sans engagement. Nous vous répondons sous 24 à 48 heures.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 40px;">
+      <div class="container">
+        <div class="contact-grid">
+          <div>
+            <h3 style="font-family: 'Fraunces', Georgia, serif; font-size: 24px; margin-bottom: 25px;">Coordonnées</h3>
+            
+            <a href="tel:0676068704" class="contact-info-card">
+              <div class="contact-info-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <span>Téléphone</span>
+                <strong>06 76 06 87 04</strong>
+              </div>
+            </a>
+
+            <a href="mailto:contact@koeller-jms.fr" class="contact-info-card">
+              <div class="contact-info-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <span>Email</span>
+                <strong>contact@koeller-jms.fr</strong>
+              </div>
+            </a>
+
+            <div class="contact-info-card">
+              <div class="contact-info-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <span>Zone d'intervention</span>
+                <strong>Alsace et régions limitrophes</strong>
+              </div>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-info-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <span>Horaires</span>
+                <strong>Lun - Sam : 8h - 19h</strong>
+              </div>
+            </div>
+
+            <div style="background: #f0fdf4; padding: 25px; border-radius: 16px; margin-top: 25px;">
+              <h4 style="font-weight: 600; margin-bottom: 8px;">Devis gratuit</h4>
+              <p style="color: #57534e; font-size: 14px; margin: 0;">Nous nous déplaçons gratuitement pour évaluer votre projet et établir un devis détaillé et personnalisé.</p>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <h3>Demande de devis</h3>
+            <form>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Nom complet *</label>
+                  <input type="text" placeholder="Votre nom">
+                </div>
+                <div class="form-group">
+                  <label>Téléphone *</label>
+                  <input type="tel" placeholder="06 XX XX XX XX">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="votre@email.fr">
+              </div>
+              <div class="form-group">
+                <label>Type de projet *</label>
+                <select>
+                  <option value="">Sélectionnez un service</option>
+                  <option>Moquette de pierre - Terrasse</option>
+                  <option>Moquette de pierre - Allée</option>
+                  <option>Moquette de pierre - Piscine</option>
+                  <option>Moquette de pierre - Escalier</option>
+                  <option>Sol résine flake</option>
+                  <option>Entretien extérieur</option>
+                  <option>Évacuation de déchets</option>
+                  <option>Autre</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Surface approximative</label>
+                <input type="text" placeholder="Ex: 30m²">
+              </div>
+              <div class="form-group">
+                <label>Description du projet</label>
+                <textarea placeholder="Décrivez votre projet, l'état actuel du support, vos attentes..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary form-submit">
+                Envoyer ma demande
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+              <p class="form-note">Réponse sous 24-48h • Devis gratuit et sans engagement</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <div class="logo-icon">K</div>
+            <span>KOELLER JMS</span>
+          </div>
+          <p class="footer-desc">Artisan spécialisé dans la pose de moquette de pierre, résine flake, l'entretien extérieur et l'évacuation de déchets. Nous intervenons en Alsace et régions limitrophes.</p>
+          <div style="display: flex; align-items: center; gap: 8px; color: #a8a29e; font-size: 14px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            Entreprise éco-responsable
+          </div>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="navigateTo('accueil')">Accueil</a></li>
+            <li><a href="#" onclick="navigateTo('moquette')">Moquette de pierre</a></li>
+            <li><a href="#" onclick="navigateTo('resine')">Résine flake</a></li>
+            <li><a href="#" onclick="navigateTo('entretien')">Entretien & Évacuation</a></li>
+            <li><a href="#" onclick="navigateTo('realisations')">Nos réalisations</a></li>
+            <li><a href="#" onclick="navigateTo('apropos')">À propos</a></li>
+            <li><a href="#" onclick="navigateTo('contact')">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="tel:0676068704">06 76 06 87 04</a></li>
+            <li><a href="mailto:contact@koeller-jms.fr">contact@koeller-jms.fr</a></li>
+            <li>Alsace et régions limitrophes</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Koeller JMS – Tous droits réservés</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile CTA -->
+  <a href="tel:0676068704" class="mobile-cta">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </a>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close">&times;</button>
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-caption">
+      <h3 id="lightboxTitle"></h3>
+      <p id="lightboxLocation"></p>
+    </div>
+  </div>
+
+  <script>
+    // Hero Slider
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    const heroDots = document.querySelectorAll('.hero-dot');
+    const heroTitle = document.getElementById('heroTitle');
+    const heroSubtitle = document.getElementById('heroSubtitle');
+    
+    const slideContent = [
+      { title: 'Moquette de pierre', subtitle: 'pour terrasses & allées' },
+      { title: 'Contours de piscine', subtitle: 'antidérapants & élégants' },
+      { title: 'Sol résine flake', subtitle: 'pour garages & ateliers' }
+    ];
+    
+    let currentSlide = 0;
+    let slideInterval;
+    
+    function goToSlide(index) {
+      heroSlides[currentSlide].classList.remove('active');
+      heroDots[currentSlide].classList.remove('active');
+      
+      currentSlide = index;
+      
+      // Boucle si on dépasse
+      if (currentSlide >= heroSlides.length) currentSlide = 0;
+      if (currentSlide < 0) currentSlide = heroSlides.length - 1;
+      
+      heroSlides[currentSlide].classList.add('active');
+      heroDots[currentSlide].classList.add('active');
+      heroTitle.textContent = slideContent[currentSlide].title;
+      heroSubtitle.textContent = slideContent[currentSlide].subtitle;
+      
+      // Reset le timer auto
+      resetSlideInterval();
+    }
+    
+    function nextSlide() {
+      goToSlide(currentSlide + 1);
+    }
+    
+    function prevSlide() {
+      goToSlide(currentSlide - 1);
+    }
+    
+    function resetSlideInterval() {
+      clearInterval(slideInterval);
+      slideInterval = setInterval(() => {
+        goToSlide(currentSlide + 1);
+      }, 5000);
+    }
+    
+    // Démarrer le slider auto
+    resetSlideInterval();
+
+    // Navigation
+    function navigateTo(pageId) {
+      // Hide all pages
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
+      
+      // Show target page
+      document.getElementById('page-' + pageId).classList.add('active');
+      
+      // Update nav active state
+      document.querySelectorAll('.nav-menu a, .mobile-menu a').forEach(link => {
+        link.classList.remove('active');
+        if (link.dataset.page === pageId) {
+          link.classList.add('active');
+        }
+      });
+      
+      // Close mobile menu
+      document.getElementById('mobileMenu').classList.remove('open');
+      
+      // Scroll to top
+      window.scrollTo(0, 0);
+      
+      return false;
+    }
+
+    // Mobile Menu
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    // Lightbox
+    function openLightbox(src, title, location) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxTitle').textContent = title;
+      document.getElementById('lightboxLocation').textContent = location;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+
+    // Gallery Filter
+    function filterGallery(category, btn) {
+      // Update filter buttons
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('active');
+      });
+      btn.classList.add('active');
+      
+      // Filter gallery items
+      document.querySelectorAll('#mainGallery .gallery-item').forEach(item => {
+        if (category === 'all' || item.dataset.category === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

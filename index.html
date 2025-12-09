@@ -2155,8 +2155,7 @@
             <strong>Adresse :</strong> [Votre adresse complète]<br>
             <strong>Téléphone :</strong> 06 76 06 87 04<br>
             <strong>Email :</strong> contact@koeller-jms.fr<br>
-            <strong>SIRET :</strong> [Votre numéro SIRET]<br>
-            <strong>N° Répertoire des Métiers :</strong> [Votre numéro RM]
+            <strong>SIRET :</strong> [Votre numéro SIRET]
           </p>
           
           <h2 class="font-display" style="font-size: 24px; margin-bottom: 20px; margin-top: 40px;">2. Hébergeur du site</h2>
@@ -2445,3 +2444,18 @@
       document.querySelectorAll('.filter-btn').forEach(function(b) {
         b.classList.remove('active');
       });
+      btn.classList.add('active');
+      
+      // Filter gallery items
+      document.querySelectorAll('#mainGallery .gallery-item').forEach(function(item) {
+        if (category === 'all' || item.dataset.category === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

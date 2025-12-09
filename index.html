@@ -130,6 +130,11 @@
       font-weight: 700;
     }
     
+    .logo-img {
+      height: 55px;
+      width: auto;
+    }
+    
     .header-contact {
       display: flex;
       align-items: center;
@@ -909,20 +914,12 @@
     }
     
     .footer-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
       margin-bottom: 20px;
     }
     
-    .footer-logo .logo-icon {
-      background: #44403c;
-    }
-    
-    .footer-logo span {
-      font-weight: 600;
-      font-size: 18px;
-      color: white;
+    .footer-logo .logo-img {
+      height: 70px;
+      width: auto;
     }
     
     .footer-desc {
@@ -1263,8 +1260,7 @@
     <div class="header-top">
       <div class="container">
         <a href="#" class="logo" onclick="navigateTo('accueil')">
-          <div class="logo-icon">K</div>
-          <span>KOELLER JMS</span>
+          <img src="images/logo.png" alt="Koeller JMS" class="logo-img">
         </a>
         <div class="header-contact">
           <a href="tel:0676068704" class="header-phone">
@@ -2023,13 +2019,13 @@
               </div>
             </a>
 
-            <a href="mailto:contact@koeller-jms.fr" class="contact-info-card">
+            <a href="/cdn-cgi/l/email-protection#b1d2dedfc5d0d2c5f1daded4ddddd4c39cdbdcc29fd7c3" class="contact-info-card">
               <div class="contact-info-icon">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               </div>
               <div>
                 <span>Email</span>
-                <strong>contact@koeller-jms.fr</strong>
+                <strong><span class="__cf_email__" data-cfemail="d1b2bebfa5b0b2a591babeb4bdbdb4a3fcbbbca2ffb7a3">[email&#160;protected]</span></strong>
               </div>
             </a>
 
@@ -2116,8 +2112,7 @@
       <div class="footer-grid">
         <div>
           <div class="footer-logo">
-            <div class="logo-icon">K</div>
-            <span>KOELLER JMS</span>
+            <img src="images/logo.png" alt="Koeller JMS" class="logo-img">
           </div>
           <p class="footer-desc">Artisan spécialisé dans la pose de moquette de pierre, résine flake, l'entretien extérieur et l'évacuation de déchets. Nous intervenons en Franche-Comté et régions limitrophes.</p>
           <div style="display: flex; align-items: center; gap: 8px; color: #a8a29e; font-size: 14px;">
@@ -2141,7 +2136,7 @@
           <h4>Contact</h4>
           <ul class="footer-links">
             <li><a href="tel:0676068704">06 76 06 87 04</a></li>
-            <li><a href="mailto:contact@koeller-jms.fr">contact@koeller-jms.fr</a></li>
+            <li><a href="/cdn-cgi/l/email-protection#5635393822373522163d39333a3a33247b3c3b25783024"><span class="__cf_email__" data-cfemail="4f2c20213b2e2c3b0f24202a23232a3d6225223c61293d">[email&#160;protected]</span></a></li>
             <li>Franche-Comté et régions limitrophes</li>
           </ul>
         </div>
@@ -2167,7 +2162,7 @@
     </div>
   </div>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Hero Slider
     const heroSlides = document.querySelectorAll('.hero-slide');
     const heroDots = document.querySelectorAll('.hero-dot');
@@ -2268,20 +2263,4 @@
     function filterGallery(category, btn) {
       // Update filter buttons
       document.querySelectorAll('.filter-btn').forEach(b => {
-        b.classList.remove('active');
-      });
-      btn.classList.add('active');
-      
-      // Filter gallery items
-      document.querySelectorAll('#mainGallery .gallery-item').forEach(item => {
-        if (category === 'all' || item.dataset.category === category) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    }
-  </script>
-
-</body>
-</html>
+        b.classList.remove('activ

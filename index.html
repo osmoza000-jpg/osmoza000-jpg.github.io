@@ -99,7 +99,7 @@
     }
     
     .header-top {
-      padding: 10px 0;
+      padding: 12px 0;
       border-bottom: 1px solid #e7e5e4;
     }
     
@@ -128,12 +128,6 @@
       justify-content: center;
       color: white;
       font-weight: 700;
-    }
-    
-    .logo-img {
-      height: 130px;
-      width: auto;
-      margin: -35px 0;
     }
     
     .header-contact {
@@ -235,21 +229,6 @@
       .header-contact .btn {
         display: none;
       }
-      
-      .logo-img {
-        height: 75px;
-        margin: -15px 0;
-      }
-      
-      .footer-logo .logo-img {
-        height: 100px;
-        padding: 15px 20px;
-      }
-      
-      .hero,
-      .page-header {
-        margin-top: 100px;
-      }
     }
     
     /* Hero */
@@ -257,7 +236,7 @@
       position: relative;
       height: 85vh;
       min-height: 600px;
-      margin-top: 115px;
+      margin-top: 110px;
       overflow: hidden;
     }
     
@@ -872,7 +851,7 @@
     .page-header {
       padding: 80px 0;
       background: #fafaf9;
-      margin-top: 115px;
+      margin-top: 110px;
     }
     
     .page-header-content {
@@ -930,16 +909,20 @@
     }
     
     .footer-logo {
-      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
     }
     
-    .footer-logo .logo-img {
-      height: 140px;
-      width: auto;
-      background: white;
-      padding: 20px 30px;
-      border-radius: 20px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    .footer-logo .logo-icon {
+      background: #44403c;
+    }
+    
+    .footer-logo span {
+      font-weight: 600;
+      font-size: 18px;
+      color: white;
     }
     
     .footer-desc {
@@ -1280,7 +1263,8 @@
     <div class="header-top">
       <div class="container">
         <a href="#" class="logo" onclick="navigateTo('accueil')">
-          <img src="images/logo.png" alt="Koeller JMS" class="logo-img">
+          <div class="logo-icon">K</div>
+          <span>KOELLER JMS</span>
         </a>
         <div class="header-contact">
           <a href="tel:0676068704" class="header-phone">
@@ -2132,7 +2116,8 @@
       <div class="footer-grid">
         <div>
           <div class="footer-logo">
-            <img src="images/logo.png" alt="Koeller JMS" class="logo-img">
+            <div class="logo-icon">K</div>
+            <span>KOELLER JMS</span>
           </div>
           <p class="footer-desc">Artisan spécialisé dans la pose de moquette de pierre, résine flake, l'entretien extérieur et l'évacuation de déchets. Nous intervenons en Franche-Comté et régions limitrophes.</p>
           <div style="display: flex; align-items: center; gap: 8px; color: #a8a29e; font-size: 14px;">
@@ -2283,4 +2268,20 @@
     function filterGallery(category, btn) {
       // Update filter buttons
       document.querySelectorAll('.filter-btn').forEach(b => {
-        b.classList.remove('activ
+        b.classList.remove('active');
+      });
+      btn.classList.add('active');
+      
+      // Filter gallery items
+      document.querySelectorAll('#mainGallery .gallery-item').forEach(item => {
+        if (category === 'all' || item.dataset.category === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

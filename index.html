@@ -2518,15 +2518,31 @@
     // Lightbox
     let galleryImages = [];
     let currentImageIndex = 0;
+    let currentGallery = null;
 
-    // Initialiser la galerie d'images
-    function initGallery() {
-      const activeGallery = document.querySelector('.gallery-section.active');
-      if (!activeGallery) return;
+    // Initialiser la galerie d'images basée sur l'image cliquée
+    function initGallery(clickedSrc) {
+      // Trouver l'élément gallery-item qui contient cette image
+      const allItems = document.querySelectorAll('.gallery-item');
+      let clickedItem = null;
       
-      const items = activeGallery.querySelectorAll('.gallery-item');
+      allItems.forEach(function(item) {
+        const onclickAttr = item.getAttribute('onclick');
+        if (onclickAttr && onclickAttr.includes(clickedSrc)) {
+          clickedItem = item;
+        }
+      });
+      
+      if (!clickedItem) return;
+      
+      // Trouver la galerie parente (gallery-grid)
+      currentGallery = clickedItem.closest('.gallery-grid');
+      if (!currentGallery) return;
+      
+      // Récupérer toutes les images de cette galerie uniquement
+      const items = currentGallery.querySelectorAll('.gallery-item');
       galleryImages = [];
-      items.forEach(function(item, index) {
+      items.forEach(function(item) {
         const onclickAttr = item.getAttribute('onclick');
         const match = onclickAttr.match(/openLightbox\('([^']+)'/);
         if (match) {
@@ -2539,7 +2555,7 @@
     }
 
     function openLightbox(src, title, location) {
-      initGallery();
+      initGallery(src);
       // Trouver l'index de l'image actuelle
       currentImageIndex = galleryImages.findIndex(function(img) { return img.src === src; });
       if (currentImageIndex === -1) currentImageIndex = 0;
@@ -2582,7 +2598,7 @@
       if (e.target === this) closeLightbox();
     });
 
-    // Gallery Filter
+    // Gallery Filter pour la page Réalisations
     function filterGallery(category, btn) {
       // Cacher toutes les galeries
       document.querySelectorAll('.gallery-section').forEach(function(gallery) {
@@ -2590,16 +2606,16 @@
       });
       
       // Afficher la galerie sélectionnée
-      document.getElementById('gallery-' + category).classList.add('active');
+      var targetGallery = document.getElementById('gallery-' + category);
+      if (targetGallery) {
+        targetGallery.classList.add('active');
+      }
       
       // Mettre à jour les boutons
       document.querySelectorAll('.filter-btn').forEach(function(b) {
         b.classList.remove('active');
       });
       btn.classList.add('active');
-      
-      // Réinitialiser la galerie pour le lightbox
-      initGallery();
     }
   </script>
 </body>

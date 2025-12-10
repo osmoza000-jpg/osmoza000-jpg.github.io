@@ -1035,6 +1035,48 @@
       color: #a8a29e;
     }
     
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      color: white;
+      font-size: 32px;
+      cursor: pointer;
+      padding: 20px 16px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+    
+    .lightbox-nav:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    
+    .lightbox-prev {
+      left: 20px;
+    }
+    
+    .lightbox-next {
+      right: 20px;
+    }
+    
+    @media (max-width: 600px) {
+      .lightbox-nav {
+        font-size: 24px;
+        padding: 15px 12px;
+      }
+      
+      .lightbox-prev {
+        left: 10px;
+      }
+      
+      .lightbox-next {
+        right: 10px;
+      }
+    }
+    
     /* Filters */
     .filters {
       display: flex;
@@ -1864,62 +1906,62 @@
           <div class="gallery-item" data-category="moquette" onclick="openLightbox('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200', 'Terrasse moderne', 'Strasbourg')">
             <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=450&fit=crop" alt="Terrasse moderne">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Terrasse moderne</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Strasbourg</p></div>
+            <div class="gallery-item-info"><h3>Terrasse moderne</h3></div>
           </div>
           <div class="gallery-item" data-category="moquette" onclick="openLightbox('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200', 'Contour de piscine', 'Colmar')">
             <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&h=450&fit=crop" alt="Contour de piscine">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Contour de piscine</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Colmar</p></div>
+            <div class="gallery-item-info"><h3>Contour de piscine</h3></div>
           </div>
           <div class="gallery-item" data-category="moquette" onclick="openLightbox('https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200', 'Allée de jardin', 'Mulhouse')">
             <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&h=450&fit=crop" alt="Allée de jardin">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Allée de jardin</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Mulhouse</p></div>
+            <div class="gallery-item-info"><h3>Allée de jardin</h3></div>
           </div>
           <div class="gallery-item" data-category="moquette" onclick="openLightbox('https://images.unsplash.com/photo-1600573472591-ee6c563aaec9?w=1200', 'Escalier extérieur', 'Haguenau')">
             <img src="https://images.unsplash.com/photo-1600573472591-ee6c563aaec9?w=600&h=450&fit=crop" alt="Escalier extérieur">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Escalier extérieur</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Haguenau</p></div>
+            <div class="gallery-item-info"><h3>Escalier extérieur</h3></div>
           </div>
           <div class="gallery-item" data-category="moquette" onclick="openLightbox('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200', 'Entrée de maison', 'Sélestat')">
             <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=450&fit=crop" alt="Entrée de maison">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Entrée de maison</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Sélestat</p></div>
+            <div class="gallery-item-info"><h3>Entrée de maison</h3></div>
           </div>
           <div class="gallery-item" data-category="moquette" onclick="openLightbox('https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1200', 'Cour intérieure', 'Saverne')">
             <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&h=450&fit=crop" alt="Cour intérieure">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Cour intérieure</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Saverne</p></div>
+            <div class="gallery-item-info"><h3>Cour intérieure</h3></div>
           </div>
           <div class="gallery-item" data-category="resine" onclick="openLightbox('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200', 'Garage résidentiel', 'Strasbourg')">
             <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=450&fit=crop" alt="Garage résidentiel">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Garage résidentiel</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Strasbourg</p></div>
+            <div class="gallery-item-info"><h3>Garage résidentiel</h3></div>
           </div>
           <div class="gallery-item" data-category="resine" onclick="openLightbox('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200', 'Atelier professionnel', 'Colmar')">
             <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=450&fit=crop" alt="Atelier professionnel">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Atelier professionnel</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Colmar</p></div>
+            <div class="gallery-item-info"><h3>Atelier professionnel</h3></div>
           </div>
           <div class="gallery-item" data-category="entretien" onclick="openLightbox('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1200', 'Taille de haies', 'Mulhouse')">
             <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=450&fit=crop" alt="Taille de haies">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Taille de haies</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Mulhouse</p></div>
+            <div class="gallery-item-info"><h3>Taille de haies</h3></div>
           </div>
           <div class="gallery-item" data-category="entretien" onclick="openLightbox('https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1200', 'Nettoyage terrasse', 'Haguenau')">
             <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=600&h=450&fit=crop" alt="Nettoyage terrasse">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Nettoyage terrasse</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Haguenau</p></div>
+            <div class="gallery-item-info"><h3>Nettoyage terrasse</h3></div>
           </div>
           <div class="gallery-item" data-category="moquette" onclick="openLightbox('https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=1200', 'Terrasse avec motifs', 'Obernai')">
             <img src="https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=600&h=450&fit=crop" alt="Terrasse avec motifs">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Terrasse avec motifs</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Obernai</p></div>
+            <div class="gallery-item-info"><h3>Terrasse avec motifs</h3></div>
           </div>
           <div class="gallery-item" data-category="moquette" onclick="openLightbox('https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=1200', 'Plage de piscine', 'Wissembourg')">
             <img src="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=600&h=450&fit=crop" alt="Plage de piscine">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Plage de piscine</h3><p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Wissembourg</p></div>
+            <div class="gallery-item-info"><h3>Plage de piscine</h3></div>
           </div>
         </div>
       </div>
@@ -2154,7 +2196,7 @@
             <strong>Statut :</strong> Auto-entrepreneur<br>
             <strong>Adresse :</strong> 5 Chem. des Forges, 25440 Chenecey-Buillon<br>
             <strong>Téléphone :</strong> 06 76 06 87 04<br>
-            <strong>Email :</strong> koellerjms@gmail.com<br>
+            <strong>Email :</strong> <a href="mailto:koellerjms@gmail.com">koellerjms@gmail.com</a><br>
             <strong>SIRET :</strong> 8793936920014
           </p>
           
@@ -2162,7 +2204,7 @@
           <p style="margin-bottom: 20px; line-height: 1.8;">
             <strong>Nom :</strong> Hostinger<br>
             <strong>Adresse :</strong> 61 Lordou Vironos Street, 6023 Larnaca, Chypre<br>
-            <strong>Adresse e-mail :</strong> support@hostinger.com
+            <strong>Adresse e-mail :</strong> <a href="mailto:koellerjms@gmail.com">koellerjms@gmail.com</a>
           </p>
           
           <h2 class="font-display" style="font-size: 24px; margin-bottom: 20px; margin-top: 40px;">3. Propriété intellectuelle</h2>
@@ -2210,7 +2252,7 @@
             Le responsable du traitement des données collectées sur ce site est :<br>
             <strong>Koeller JMS</strong><br>
             5 Chem. des Forges, 25440 Chenecey-Buillon<br>
-            Email : koellerjms@gmail.com<br>
+            Email : <a href="mailto:koellerjms@gmail.com">koellerjms@gmail.com</a><br>
             Téléphone : 06 76 06 87 04
           </p>
           
@@ -2263,7 +2305,7 @@
             <li><strong>Droit à la portabilité :</strong> recevoir vos données dans un format structuré</li>
           </ul>
           <p style="margin-bottom: 20px; line-height: 1.8;">
-            Pour exercer ces droits, contactez-nous à : <strong>koellerjms@gmail.com</strong>
+            Pour exercer ces droits, contactez-nous à : <strong><a href="mailto:koellerjms@gmail.com">koellerjms@gmail.com</a></strong>
           </p>
           
           <h2 class="font-display" style="font-size: 24px; margin-bottom: 20px; margin-top: 40px;">8. Cookies</h2>
@@ -2332,13 +2374,11 @@
   </a>
 
   <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <button class="lightbox-close">&times;</button>
-    <img id="lightboxImg" src="" alt="">
-    <div class="lightbox-caption">
-      <h3 id="lightboxTitle"></h3>
-      <p id="lightboxLocation"></p>
-    </div>
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <button class="lightbox-nav lightbox-prev" onclick="prevLightboxImage(event)">&#10094;</button>
+    <img id="lightboxImg" src="" alt="" onclick="event.stopPropagation()">
+    <button class="lightbox-nav lightbox-next" onclick="nextLightboxImage(event)">&#10095;</button>
   </div>
 
   <script>
@@ -2427,35 +2467,91 @@
     }
 
     // Lightbox
-    function openLightbox(src, title, location) {
-      document.getElementById('lightboxImg').src = src;
-      document.getElementById('lightboxTitle').textContent = title;
-      document.getElementById('lightboxLocation').textContent = location;
-      document.getElementById('lightbox').classList.add('open');
+    let galleryImages = [];
+    let currentImageIndex = 0;
+
+    // Initialiser la galerie d'images
+    function initGallery() {
+      const items = document.querySelectorAll('.gallery-item');
+      galleryImages = [];
+      items.forEach(function(item, index) {
+        if (item.style.display !== 'none') {
+          const onclickAttr = item.getAttribute('onclick');
+          const match = onclickAttr.match(/openLightbox\('([^']+)'/);
+          if (match) {
+            galleryImages.push({
+              src: match[1],
+              element: item
+            });
+          }
+        }
+      });
     }
-    
+
+    function openLightbox(src, title, location) {
+      initGallery();
+      // Trouver l'index de l'image actuelle
+      currentImageIndex = galleryImages.findIndex(function(img) { return img.src === src; });
+      if (currentImageIndex === -1) currentImageIndex = 0;
+      
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
     function closeLightbox() {
       document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
     }
+
+    function prevLightboxImage(event) {
+      event.stopPropagation();
+      if (galleryImages.length === 0) return;
+      currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+      document.getElementById('lightboxImg').src = galleryImages[currentImageIndex].src;
+    }
+
+    function nextLightboxImage(event) {
+      event.stopPropagation();
+      if (galleryImages.length === 0) return;
+      currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+      document.getElementById('lightboxImg').src = galleryImages[currentImageIndex].src;
+    }
+
+    // Fermer avec Escape et naviguer avec flèches clavier
+    document.addEventListener('keydown', function(e) {
+      if (document.getElementById('lightbox').classList.contains('open')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') prevLightboxImage(e);
+        if (e.key === 'ArrowRight') nextLightboxImage(e);
+      }
+    });
+
+    // Fermer en cliquant sur le fond
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
 
     // Gallery Filter
     function filterGallery(category, btn) {
-      // Update filter buttons
-      document.querySelectorAll('.filter-btn').forEach(function(b) {
-        b.classList.remove('active');
-      });
-      btn.classList.add('active');
+      const items = document.querySelectorAll('.gallery-item');
       
-      // Filter gallery items
-      document.querySelectorAll('#mainGallery .gallery-item').forEach(function(item) {
+      items.forEach(function(item) {
         if (category === 'all' || item.dataset.category === category) {
           item.style.display = 'block';
         } else {
           item.style.display = 'none';
         }
       });
+      
+      document.querySelectorAll('.filter-btn').forEach(function(b) {
+        b.classList.remove('active');
+      });
+      btn.classList.add('active');
+      
+      // Réinitialiser la galerie après filtrage
+      initGallery();
     }
   </script>
-
 </body>
 </html>

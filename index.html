@@ -1096,6 +1096,14 @@
       color: white;
     }
     
+    .gallery-section {
+      display: none;
+    }
+    
+    .gallery-section.active {
+      display: grid;
+    }
+    
     /* Services details */
     .services-list {
       list-style: none;
@@ -1894,101 +1902,115 @@
           <button class="filter-btn" onclick="filterGallery('entretien', this)">Entretien</button>
         </div>
         
-        <div class="gallery-grid" id="mainGallery">
-          <!-- Moquette de pierre - 6 images -->
-          <div class="gallery-item" data-category="moquette" onclick="openLightbox('images/img25.jpg?w=1200', 'Terrasse moderne', '')">
-            <img src="images/img25.jpg?w=600&h=450&fit=crop" alt="Terrasse moderne">
+        <!-- Galerie TOUTES - 6 images -->
+        <div class="gallery-grid gallery-section active" id="gallery-all">
+          <div class="gallery-item" onclick="openLightbox('images/toutes/img1.jpg', '', '')">
+            <img src="images/toutes/img1.jpg" alt="Réalisation 1">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Terrasse moderne</h3></div>
           </div>
-          <div class="gallery-item" data-category="moquette" onclick="openLightbox('images/img22.jpg?w=1200', 'Contour de piscine', '')">
-            <img src="images/img22.jpg?w=600&h=450&fit=crop" alt="Contour de piscine">
+          <div class="gallery-item" onclick="openLightbox('images/toutes/img2.jpg', '', '')">
+            <img src="images/toutes/img2.jpg" alt="Réalisation 2">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Contour de piscine</h3></div>
           </div>
-          <div class="gallery-item" data-category="moquette" onclick="openLightbox('images/img1.jpg?w=1200', 'Allée de jardin', '')">
-            <img src="images/img1.jpg?w=600&h=450&fit=crop" alt="Allée de jardin">
+          <div class="gallery-item" onclick="openLightbox('images/toutes/img3.jpg', '', '')">
+            <img src="images/toutes/img3.jpg" alt="Réalisation 3">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Allée de jardin</h3></div>
           </div>
-          <div class="gallery-item" data-category="moquette" onclick="openLightbox('images/img7.jpg?w=1200', 'Escalier extérieur', '')">
-            <img src="images/img7.jpg?w=600&h=450&fit=crop" alt="Escalier extérieur">
+          <div class="gallery-item" onclick="openLightbox('images/toutes/img4.jpg', '', '')">
+            <img src="images/toutes/img4.jpg" alt="Réalisation 4">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Escalier extérieur</h3></div>
           </div>
-          <div class="gallery-item" data-category="moquette" onclick="openLightbox('images/img20.jpg?w=1200', 'Entrée de maison', '')">
-            <img src="images/img20.jpg?w=600&h=450&fit=crop" alt="Entrée de maison">
+          <div class="gallery-item" onclick="openLightbox('images/toutes/img5.jpg', '', '')">
+            <img src="images/toutes/img5.jpg" alt="Réalisation 5">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Entrée de maison</h3></div>
           </div>
-          <div class="gallery-item" data-category="moquette" onclick="openLightbox('images/img18.jpg?w=1200', 'Cour intérieure', '')">
-            <img src="images/img18.jpg?w=600&h=450&fit=crop" alt="Cour intérieure">
+          <div class="gallery-item" onclick="openLightbox('images/toutes/img6.jpg', '', '')">
+            <img src="images/toutes/img6.jpg" alt="Réalisation 6">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Cour intérieure</h3></div>
           </div>
-          
-          <!-- Résine flake - 6 images -->
-          <div class="gallery-item" data-category="resine" onclick="openLightbox('images/img19.jpg?w=1200', 'Garage résidentiel', '')">
-            <img src="images/img19.jpg?w=600&h=450&fit=crop" alt="Garage résidentiel">
+        </div>
+        
+        <!-- Galerie MOQUETTE DE PIERRE - 6 images -->
+        <div class="gallery-grid gallery-section" id="gallery-moquette">
+          <div class="gallery-item" onclick="openLightbox('images/moquette/img1.jpg', '', '')">
+            <img src="images/moquette/img1.jpg" alt="Moquette de pierre 1">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Garage résidentiel</h3></div>
           </div>
-          <div class="gallery-item" data-category="resine" onclick="openLightbox('images/img14.jpg?w=1200', 'Atelier professionnel', '')">
-            <img src="images/img14.jpg?w=600&h=450&fit=crop" alt="Atelier professionnel">
+          <div class="gallery-item" onclick="openLightbox('images/moquette/img2.jpg', '', '')">
+            <img src="images/moquette/img2.jpg" alt="Moquette de pierre 2">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Atelier professionnel</h3></div>
           </div>
-          <div class="gallery-item" data-category="resine" onclick="openLightbox('images/img15.jpg?w=1200', 'Sol de garage', '')">
-            <img src="images/img15.jpg?w=600&h=450&fit=crop" alt="Sol de garage">
+          <div class="gallery-item" onclick="openLightbox('images/moquette/img3.jpg', '', '')">
+            <img src="images/moquette/img3.jpg" alt="Moquette de pierre 3">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Sol de garage</h3></div>
           </div>
-          <div class="gallery-item" data-category="resine" onclick="openLightbox('images/img16.jpg?w=1200', 'Local technique', '')">
-            <img src="images/img16.jpg?w=600&h=450&fit=crop" alt="Local technique">
+          <div class="gallery-item" onclick="openLightbox('images/moquette/img4.jpg', '', '')">
+            <img src="images/moquette/img4.jpg" alt="Moquette de pierre 4">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Local technique</h3></div>
           </div>
-          <div class="gallery-item" data-category="resine" onclick="openLightbox('images/img17.jpg?w=1200', 'Atelier artisan', '')">
-            <img src="images/img17.jpg?w=600&h=450&fit=crop" alt="Atelier artisan">
+          <div class="gallery-item" onclick="openLightbox('images/moquette/img5.jpg', '', '')">
+            <img src="images/moquette/img5.jpg" alt="Moquette de pierre 5">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Atelier artisan</h3></div>
           </div>
-          <div class="gallery-item" data-category="resine" onclick="openLightbox('images/img21.jpg?w=1200', 'Garage double', '')">
-            <img src="images/img21.jpg?w=600&h=450&fit=crop" alt="Garage double">
+          <div class="gallery-item" onclick="openLightbox('images/moquette/img6.jpg', '', '')">
+            <img src="images/moquette/img6.jpg" alt="Moquette de pierre 6">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Garage double</h3></div>
           </div>
-          
-          <!-- Entretien - 6 images -->
-          <div class="gallery-item" data-category="entretien" onclick="openLightbox('images/img4.jpg?w=1200', 'Taille de haies', '')">
-            <img src="images/img4.jpg?w=600&h=450&fit=crop" alt="Taille de haies">
+        </div>
+        
+        <!-- Galerie RÉSINE FLAKE - 6 images -->
+        <div class="gallery-grid gallery-section" id="gallery-resine">
+          <div class="gallery-item" onclick="openLightbox('images/resine/img1.jpg', '', '')">
+            <img src="images/resine/img1.jpg" alt="Résine flake 1">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Taille de haies</h3></div>
           </div>
-          <div class="gallery-item" data-category="entretien" onclick="openLightbox('images/img5.jpg?w=1200', 'Nettoyage terrasse', '')">
-            <img src="images/img5.jpg?w=600&h=450&fit=crop" alt="Nettoyage terrasse">
+          <div class="gallery-item" onclick="openLightbox('images/resine/img2.jpg', '', '')">
+            <img src="images/resine/img2.jpg" alt="Résine flake 2">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Nettoyage terrasse</h3></div>
           </div>
-          <div class="gallery-item" data-category="entretien" onclick="openLightbox('images/img6.jpg?w=1200', 'Débroussaillage', '')">
-            <img src="images/img6.jpg?w=600&h=450&fit=crop" alt="Débroussaillage">
+          <div class="gallery-item" onclick="openLightbox('images/resine/img3.jpg', '', '')">
+            <img src="images/resine/img3.jpg" alt="Résine flake 3">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Débroussaillage</h3></div>
           </div>
-          <div class="gallery-item" data-category="entretien" onclick="openLightbox('images/img8.jpg?w=1200', 'Entretien jardin', '')">
-            <img src="images/img8.jpg?w=600&h=450&fit=crop" alt="Entretien jardin">
+          <div class="gallery-item" onclick="openLightbox('images/resine/img4.jpg', '', '')">
+            <img src="images/resine/img4.jpg" alt="Résine flake 4">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Entretien jardin</h3></div>
           </div>
-          <div class="gallery-item" data-category="entretien" onclick="openLightbox('images/img9.jpg?w=1200', 'Évacuation déchets', '')">
-            <img src="images/img9.jpg?w=600&h=450&fit=crop" alt="Évacuation déchets">
+          <div class="gallery-item" onclick="openLightbox('images/resine/img5.jpg', '', '')">
+            <img src="images/resine/img5.jpg" alt="Résine flake 5">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Évacuation déchets</h3></div>
           </div>
-          <div class="gallery-item" data-category="entretien" onclick="openLightbox('images/img11.jpg?w=1200', 'Nettoyage allée', '')">
-            <img src="images/img11.jpg?w=600&h=450&fit=crop" alt="Nettoyage allée">
+          <div class="gallery-item" onclick="openLightbox('images/resine/img6.jpg', '', '')">
+            <img src="images/resine/img6.jpg" alt="Résine flake 6">
             <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-info"><h3>Nettoyage allée</h3></div>
+          </div>
+        </div>
+        
+        <!-- Galerie ENTRETIEN - 6 images -->
+        <div class="gallery-grid gallery-section" id="gallery-entretien">
+          <div class="gallery-item" onclick="openLightbox('images/entretien/img1.jpg', '', '')">
+            <img src="images/entretien/img1.jpg" alt="Entretien 1">
+            <div class="gallery-item-overlay"></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/entretien/img2.jpg', '', '')">
+            <img src="images/entretien/img2.jpg" alt="Entretien 2">
+            <div class="gallery-item-overlay"></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/entretien/img3.jpg', '', '')">
+            <img src="images/entretien/img3.jpg" alt="Entretien 3">
+            <div class="gallery-item-overlay"></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/entretien/img4.jpg', '', '')">
+            <img src="images/entretien/img4.jpg" alt="Entretien 4">
+            <div class="gallery-item-overlay"></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/entretien/img5.jpg', '', '')">
+            <img src="images/entretien/img5.jpg" alt="Entretien 5">
+            <div class="gallery-item-overlay"></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/entretien/img6.jpg', '', '')">
+            <img src="images/entretien/img6.jpg" alt="Entretien 6">
+            <div class="gallery-item-overlay"></div>
           </div>
         </div>
       </div>
@@ -2499,18 +2521,19 @@
 
     // Initialiser la galerie d'images
     function initGallery() {
-      const items = document.querySelectorAll('.gallery-item');
+      const activeGallery = document.querySelector('.gallery-section.active');
+      if (!activeGallery) return;
+      
+      const items = activeGallery.querySelectorAll('.gallery-item');
       galleryImages = [];
       items.forEach(function(item, index) {
-        if (item.style.display !== 'none') {
-          const onclickAttr = item.getAttribute('onclick');
-          const match = onclickAttr.match(/openLightbox\('([^']+)'/);
-          if (match) {
-            galleryImages.push({
-              src: match[1],
-              element: item
-            });
-          }
+        const onclickAttr = item.getAttribute('onclick');
+        const match = onclickAttr.match(/openLightbox\('([^']+)'/);
+        if (match) {
+          galleryImages.push({
+            src: match[1],
+            element: item
+          });
         }
       });
     }
@@ -2561,22 +2584,21 @@
 
     // Gallery Filter
     function filterGallery(category, btn) {
-      const items = document.querySelectorAll('.gallery-item');
-      
-      items.forEach(function(item) {
-        if (category === 'all' || item.dataset.category === category) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
+      // Cacher toutes les galeries
+      document.querySelectorAll('.gallery-section').forEach(function(gallery) {
+        gallery.classList.remove('active');
       });
       
+      // Afficher la galerie sélectionnée
+      document.getElementById('gallery-' + category).classList.add('active');
+      
+      // Mettre à jour les boutons
       document.querySelectorAll('.filter-btn').forEach(function(b) {
         b.classList.remove('active');
       });
       btn.classList.add('active');
       
-      // Réinitialiser la galerie après filtrage
+      // Réinitialiser la galerie pour le lightbox
       initGallery();
     }
   </script>

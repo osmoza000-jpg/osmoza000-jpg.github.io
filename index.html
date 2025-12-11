@@ -2038,8 +2038,8 @@
           <div>
             <span class="section-badge">À propos</span>
             <h1>Qui sommes-nous ?</h1>
-            <p>Koeller JMS est une entreprise artisanale alsacienne spécialisée dans la pose de moquette de pierre, le sol résine flake, l'entretien extérieur et l'évacuation de déchets.</p>
-            <p>Forts de plus de 15 ans d'expérience, nous mettons notre savoir-faire au service des particuliers et des professionnels pour créer et entretenir des espaces agréables, solides et faciles à vivre.</p>
+            <p>Koeller JMS est une entreprise artisanale de Franche-Comté spécialisée dans la pose de moquette de pierre, le sol résine flake, l'entretien extérieur et l'évacuation de déchets.</p>
+            <p>Nous mettons notre savoir-faire au service des particuliers et des professionnels pour créer et entretenir des espaces agréables, solides et faciles à vivre.</p>
             <p>Notre engagement : un travail soigné, des matériaux de qualité, et une relation de confiance avec chacun de nos clients.</p>
           </div>
           <div>
@@ -2086,8 +2086,8 @@
       <div class="container">
         <div class="stats-grid">
           <div>
-            <div class="stat-num">15+</div>
-            <div class="stat-label">Années d'expérience</div>
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Artisan qualifié</div>
           </div>
           <div>
             <div class="stat-num">500+</div>
@@ -2596,34 +2596,4 @@
       if (document.getElementById('lightbox').classList.contains('open')) {
         if (e.key === 'Escape') closeLightbox();
         if (e.key === 'ArrowLeft') prevLightboxImage(e);
-        if (e.key === 'ArrowRight') nextLightboxImage(e);
-      }
-    });
-
-    // Fermer en cliquant sur le fond
-    document.getElementById('lightbox').addEventListener('click', function(e) {
-      if (e.target === this) closeLightbox();
-    });
-
-    // Gallery Filter pour la page Réalisations
-    function filterGallery(category, btn) {
-      // Cacher toutes les galeries
-      document.querySelectorAll('.gallery-section').forEach(function(gallery) {
-        gallery.classList.remove('active');
-      });
-      
-      // Afficher la galerie sélectionnée
-      var targetGallery = document.getElementById('gallery-' + category);
-      if (targetGallery) {
-        targetGallery.classList.add('active');
-      }
-      
-      // Mettre à jour les boutons
-      document.querySelectorAll('.filter-btn').forEach(function(b) {
-        b.classList.remove('active');
-      });
-      btn.classList.add('active');
-    }
-  </script>
-</body>
-</html>
+        if (e.key

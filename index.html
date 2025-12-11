@@ -2596,4 +2596,34 @@
       if (document.getElementById('lightbox').classList.contains('open')) {
         if (e.key === 'Escape') closeLightbox();
         if (e.key === 'ArrowLeft') prevLightboxImage(e);
-        if (e.key
+        if (e.key === 'ArrowRight') nextLightboxImage(e);
+      }
+    });
+
+    // Fermer en cliquant sur le fond
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
+
+    // Gallery Filter pour la page Réalisations
+    function filterGallery(category, btn) {
+      // Cacher toutes les galeries
+      document.querySelectorAll('.gallery-section').forEach(function(gallery) {
+        gallery.classList.remove('active');
+      });
+      
+      // Afficher la galerie sélectionnée
+      var targetGallery = document.getElementById('gallery-' + category);
+      if (targetGallery) {
+        targetGallery.classList.add('active');
+      }
+      
+      // Mettre à jour les boutons
+      document.querySelectorAll('.filter-btn').forEach(function(b) {
+        b.classList.remove('active');
+      });
+      btn.classList.add('active');
+    }
+  </script>
+</body>
+</html>

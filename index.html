@@ -1325,6 +1325,47 @@
       font-size: 17px;
       margin: 0;
     }
+    
+    /* Form Modal Popup */
+    .form-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .form-modal-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+    }
+    
+    .form-modal-content {
+      position: relative;
+      z-index: 1;
+      animation: modalAppear 0.3s ease;
+    }
+    
+    @keyframes modalAppear {
+      from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
@@ -2237,15 +2278,27 @@
               </button>
               <p class="form-note">Réponse sous 24-48h • Devis gratuit et sans engagement</p>
             </form>
-            <div id="form-success" style="display: none; background: #10b981; color: white; padding: 20px; border-radius: 12px; text-align: center; margin-top: 20px;">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom: 10px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-              <h4 style="margin: 0 0 10px 0; font-size: 20px;">Message envoyé !</h4>
-              <p style="margin: 0; opacity: 0.9;">Merci pour votre demande. Nous vous répondrons dans les plus brefs délais.</p>
+            <div id="form-success" class="form-modal" style="display: none;">
+              <div class="form-modal-overlay"></div>
+              <div class="form-modal-content" style="background: white; padding: 40px; border-radius: 16px; text-align: center; max-width: 400px; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+                <div style="width: 70px; height: 70px; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <h4 style="margin: 0 0 10px 0; font-size: 24px; color: #292524;">Message envoyé !</h4>
+                <p style="margin: 0 0 25px 0; color: #57534e; font-size: 16px; line-height: 1.5;">Merci pour votre demande.<br>Nous vous répondrons dans les plus brefs délais.</p>
+                <button onclick="closeFormModal()" class="btn btn-primary" style="width: 100%;">Fermer</button>
+              </div>
             </div>
-            <div id="form-error" style="display: none; background: #ef4444; color: white; padding: 20px; border-radius: 12px; text-align: center; margin-top: 20px;">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom: 10px;"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-              <h4 style="margin: 0 0 10px 0; font-size: 20px;">Erreur d'envoi</h4>
-              <p style="margin: 0; opacity: 0.9;">Une erreur est survenue. Veuillez réessayer ou nous contacter par téléphone.</p>
+            <div id="form-error" class="form-modal" style="display: none;">
+              <div class="form-modal-overlay"></div>
+              <div class="form-modal-content" style="background: white; padding: 40px; border-radius: 16px; text-align: center; max-width: 400px; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+                <div style="width: 70px; height: 70px; background: #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </div>
+                <h4 style="margin: 0 0 10px 0; font-size: 24px; color: #292524;">Erreur d'envoi</h4>
+                <p style="margin: 0 0 25px 0; color: #57534e; font-size: 16px; line-height: 1.5;">Une erreur est survenue.<br>Veuillez réessayer ou nous contacter par téléphone.</p>
+                <button onclick="closeFormModal()" class="btn btn-primary" style="width: 100%;">Réessayer</button>
+              </div>
             </div>
           </div>
         </div>
@@ -2674,23 +2727,33 @@
         })
         .then(function(response) {
           if (response.ok) {
-            // Succès
-            form.style.display = 'none';
-            document.getElementById('form-success').style.display = 'block';
+            // Succès - afficher la modal
+            document.getElementById('form-success').style.display = 'flex';
             document.getElementById('form-error').style.display = 'none';
+            document.body.style.overflow = 'hidden';
             form.reset();
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
           } else {
             throw new Error('Erreur serveur');
           }
         })
         .catch(function(error) {
-          // Erreur
-          document.getElementById('form-error').style.display = 'block';
+          // Erreur - afficher la modal d'erreur
+          document.getElementById('form-error').style.display = 'flex';
           document.getElementById('form-success').style.display = 'none';
+          document.body.style.overflow = 'hidden';
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalBtnText;
         });
       });
+    }
+    
+    // Fermer la modal de formulaire
+    function closeFormModal() {
+      document.getElementById('form-success').style.display = 'none';
+      document.getElementById('form-error').style.display = 'none';
+      document.body.style.overflow = '';
     }
   </script>
 </body>
